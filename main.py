@@ -72,8 +72,8 @@ def get_name():
     Returns:
         String: The name given by the user
     """
-        user_name = input("Enter your name: ")
-        return user_name
+    user_name = input("Enter your name: ")
+    return user_name
 
 def create_person(people_data):
     """
@@ -125,6 +125,21 @@ def print_all_complaints(person_dict):
         key = dict_keys[i]
         person_object = person_dict[key]
         print(person_object)
+    """
+    Prints object traits to a csv file
+
+    Args:
+        person == people[person] (Wasn't sure how to write this in a useful way)
+    """
+def print_to_csv(person):
+    try:
+        with open("complaints.csv", 'w') as file:
+            # Write content to the file
+            file.write(f"{person.name},{person.age},{person.complaint}")
+
+        print("Data has been written to the file successfully.")
+    except IOError:
+        print("Error: File cannot be opened or written.")
 
 def main():
     """
@@ -132,7 +147,7 @@ def main():
     If yes, use the method create_person().
     Else, print 'Have a good day!'.
     """
-    
+
     # Creates a dictionary to store Person objects
     people = {}
     
@@ -142,7 +157,8 @@ def main():
     # If yes, then activate the complaint filer
     if hasComplaint == "yes":
         person = create_person(people)
-        print_all_complaints(people)
+        print_to_csv(people[person])
+        
     else: # Otherwise, do nothing
         pass
     
