@@ -16,11 +16,6 @@ class Person():
         self.age = age
         self.complaint = complaint
     
-    # Grippers
-    # TODO: Do we still need this?
-    def grab_name(self):
-        return self.name
-    
     #class methods
     def get_age(self):
         """
@@ -77,8 +72,6 @@ def get_name():
     Returns:
         String: The name given by the user
     """
-    while True: # TODO: Why is this a while true if no checks are being done
-                # with the input?
         user_name = input("Enter your name: ")
         return user_name
 
