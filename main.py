@@ -133,7 +133,7 @@ def print_all_complaints(person_dict):
     """
 def print_to_csv(person):
     try:
-        with open("complaints.csv", 'w') as file:
+        with open("complaints.csv", 'a', newline=' ') as file:
             # Write content to the file
             file.write(f"{person.name},{person.age},{person.complaint}")
 
